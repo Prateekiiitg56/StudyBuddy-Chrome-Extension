@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "StudyBuddy",
+  "version": "1.0",
+  "description": "AI help for students when stuck on coding questions",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "StudyBuddy"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["panel.html", "panel.js", "style.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
